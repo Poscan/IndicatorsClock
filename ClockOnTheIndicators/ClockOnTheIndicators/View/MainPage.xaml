@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:ClockOnTheIndicators.View;assembly=ClockOnTheIndicators"
+             x:Class="ClockOnTheIndicators.View.MainPage"
+             x:DataType="view:MainPage">
+
+    <FlexLayout Background="Black" AlignItems="Center" JustifyContent="Center">
+        <BindableLayout.ItemsSource>
+            <Binding Path="IndicatorsTime" />
+        </BindableLayout.ItemsSource>
+        <BindableLayout.ItemTemplate>
+            <DataTemplate x:DataType="x:Int32">
+                <view:IndicatorComponent WidthRequest="100" Margin="5" HeightRequest="150" TimeAtomItem="{Binding .}"
+                                         x:Name="IndicatorComponent" />
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </FlexLayout>
+
+</ContentPage>
